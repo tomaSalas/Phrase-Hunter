@@ -22,7 +22,7 @@ class Game():
     def star_game(self):
         self.intro()
         while self.game_not_over:
-            self.save_attempt(self.check_input())
+            self.if_letter_guess(self.save_attempt(self.check_input()))
             print("attempt(s): " + ", ".join(attempts) + "\n")
             self.iterate_attempts()
             self.phrase.show()
@@ -63,8 +63,16 @@ class Game():
                 print("Oh no! that is more than a letter. Please try again")
                 continue
 
+    def if_letter_guess(self, letter):
+        if attempts.count(letter) >= 2:
+            print("Oh no! You already try that letter 🕵. Please try again")
+            self.if_letter_guess(self.save_attempt(self.check_input()))
+        else:
+            return
+
     def save_attempt(self, letter):
         attempts.append(letter)
+        return letter
 
     def iterate_attempts(self):
         for attempt in attempts:
@@ -79,7 +87,8 @@ class Game():
             print("You got that letter right! 💁")
         else:
             self.factor -= 1
-            print("Oh no! You got {} lives out of {}".format(self.factor, self.lives)+ " 🙈")
+            print("Oh no! You got {} lives out of {}".format(
+                self.factor, self.lives) + " 🙈")
             if self.factor == 0:
                 print("You lost! Better luck next time 😉")
                 self.end(True)
