@@ -37,7 +37,7 @@ class Game():
         self.hidden_phrase()
 
     def goodbye(self):
-        print("Thanks for playing")
+        print("Thank you for playing!")
 
     def hidden_phrase(self):
         self.phrase
