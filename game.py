@@ -6,7 +6,7 @@ import re
 
 
 class Game():
-    def __init__(self, phrases, lives=8, game_not_over=True):
+    def __init__(self, phrases, lives=5, game_not_over=True):
         self.raw_phrases = phrases
         self.phrases = [phrase for phrase in phrases]
         self.phrase = Phrase(
