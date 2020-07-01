@@ -11,12 +11,11 @@ class Phrase:
         self.phrase = char_list1
 
     def iterate(self, a_string):
-        """evaluates every string pass 
+        """evaluates every string pass
            to Character.a_character
            """
         for char in self.phrase:
             char.compare(a_string)
-            
 
     def correct_phrase(self):
         """when all characters in phrase == true
@@ -46,6 +45,10 @@ class Phrase:
             else:
                 index += 1
 
+    def all_correct(self):
+        for char in self.phrase:
+            char.was_guessed = True
+
     def show(self):
         for char in self.phrase:
             if char.was_guessed == True:
@@ -54,13 +57,10 @@ class Phrase:
                 char_list2.append("_")
         print(" ".join(char_list2))
         char_list2.clear()
-        
-        
+
     def phrase_reset_status(self):
-         for char in self.phrase:
+        for char in self.phrase:
             char.reset_word()
-            
+
     def phrase_reset(self):
         char_list1.clear()
-
-

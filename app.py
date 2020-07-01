@@ -1,9 +1,6 @@
 from game import Game
-
-
-to_guess = "python is awesome"
-
+from __init__ import list_of_phrases
 
 if __name__ == "__main__":
-    game = Game(to_guess)
+    game = Game(list_of_phrases)
     game.star_game()
